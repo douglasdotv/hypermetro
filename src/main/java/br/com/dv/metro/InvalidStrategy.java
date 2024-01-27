@@ -1,0 +1,15 @@
+package br.com.dv.metro;
+
+import java.util.List;
+import java.util.Map;
+
+public class InvalidStrategy implements CommandStrategy {
+
+    private static final String INVALID_COMMAND_MESSAGE = "Invalid command";
+
+    @Override
+    public void execute(List<String> input, Map<String, MetroLine> metroLines) {
+        System.out.println(INVALID_COMMAND_MESSAGE);
+    }
+
+}

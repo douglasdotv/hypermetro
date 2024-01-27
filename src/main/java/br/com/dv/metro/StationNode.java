@@ -3,6 +3,7 @@ package br.com.dv.metro;
 public class StationNode {
 
     private final String name;
+    private StationNode previous;
     private StationNode next;
 
     public StationNode(String name) {
@@ -11,6 +12,14 @@ public class StationNode {
 
     public String getName() {
         return name;
+    }
+
+    public StationNode getPrevious() {
+        return previous;
+    }
+
+    public void setPrevious(StationNode previous) {
+        this.previous = previous;
     }
 
     public StationNode getNext() {

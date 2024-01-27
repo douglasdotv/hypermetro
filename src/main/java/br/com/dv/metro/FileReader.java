@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.List;
 
 public final class FileReader {
 
@@ -15,15 +14,15 @@ public final class FileReader {
     private FileReader() {
     }
 
-    public static List<String> readFileLinesToList(String filePath) {
+    public static String readFileAsString(String filePath) {
         Path pathObj = Paths.get(filePath);
         if (Files.exists(pathObj)) {
             try {
-                List<String> lines = Files.readAllLines(pathObj);
-                if (lines.isEmpty()) {
+                String fileContent = Files.readString(pathObj);
+                if (fileContent.isEmpty()) {
                     throw new FileReadException(EMPTY_FILE_CONTENT_MESSAGE);
                 }
-                return lines;
+                return fileContent;
             } catch (IOException ex) {
                 throw new FileReadException(String.format(READ_FILE_ERROR_TEMPLATE, filePath, ex.getMessage()), ex);
             }

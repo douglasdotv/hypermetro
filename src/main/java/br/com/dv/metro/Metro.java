@@ -1,6 +1,8 @@
 package br.com.dv.metro;
 
-import java.util.List;
+import com.google.gson.JsonParseException;
+
+import java.util.Map;
 
 public class Metro {
 
@@ -13,14 +15,13 @@ public class Metro {
         }
 
         try {
-            String stationsFilePath = args[0];
-            List<String> stationNames = FileReader.readFileLinesToList(stationsFilePath);
-
-            MetroLine metroLine = new MetroLine();
-            stationNames.forEach(metroLine::addStation);
-            metroLine.outputStations();
-        } catch (FileReadException e) {
-            System.err.println(e.getMessage());
+            String metroLinesFilePath = args[0];
+            String metroLinesJsonStr = FileReader.readFileAsString(metroLinesFilePath);
+            Map<String, Map<String, String>> metroLines = JsonParser.parseJsonToMap(metroLinesJsonStr);
+            MetroSystem metroSystem = new MetroSystem(metroLines);
+            metroSystem.run();
+        } catch (FileReadException | JsonParseException ex) {
+            System.err.println(ex.getMessage());
         }
     }
 
