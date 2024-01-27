@@ -1,4 +1,4 @@
-package br.com.dv.metro;
+package br.com.dv.metro.util;
 
 import java.util.ArrayList;
 import java.util.List;

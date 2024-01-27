@@ -1,4 +1,4 @@
-package br.com.dv.metro;
+package br.com.dv.metro.util;
 
 import java.io.IOException;
 import java.nio.file.Files;

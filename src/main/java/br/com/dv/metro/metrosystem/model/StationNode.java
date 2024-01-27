@@ -1,4 +1,4 @@
-package br.com.dv.metro;
+package br.com.dv.metro.metrosystem.model;
 
 public class StationNode {
 

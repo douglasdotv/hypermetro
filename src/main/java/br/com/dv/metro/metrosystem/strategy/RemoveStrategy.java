@@ -1,4 +1,6 @@
-package br.com.dv.metro;
+package br.com.dv.metro.metrosystem.strategy;
+
+import br.com.dv.metro.metrosystem.MetroLine;
 
 public class RemoveStrategy extends AbstractMetroLineUpdateStrategy {
 

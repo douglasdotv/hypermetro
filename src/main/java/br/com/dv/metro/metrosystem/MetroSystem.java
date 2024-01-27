@@ -1,4 +1,8 @@
-package br.com.dv.metro;
+package br.com.dv.metro.metrosystem;
+
+import br.com.dv.metro.enums.Command;
+import br.com.dv.metro.metrosystem.strategy.*;
+import br.com.dv.metro.util.InputHandler;
 
 import java.util.Comparator;
 import java.util.HashMap;

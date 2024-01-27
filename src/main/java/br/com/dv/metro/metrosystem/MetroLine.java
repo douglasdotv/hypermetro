@@ -1,4 +1,6 @@
-package br.com.dv.metro;
+package br.com.dv.metro.metrosystem;
+
+import br.com.dv.metro.metrosystem.model.StationNode;
 
 public class MetroLine {
 

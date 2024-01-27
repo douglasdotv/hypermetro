@@ -1,4 +1,4 @@
-package br.com.dv.metro;
+package br.com.dv.metro.util;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonParseException;

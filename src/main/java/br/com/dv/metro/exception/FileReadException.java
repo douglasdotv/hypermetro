@@ -1,4 +1,4 @@
-package br.com.dv.metro;
+package br.com.dv.metro.exception;
 
 public class FileReadException extends RuntimeException {
 
