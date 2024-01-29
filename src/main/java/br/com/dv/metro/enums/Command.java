@@ -5,6 +5,7 @@ public enum Command {
     APPEND("append"),
     PREPEND("add-head"),
     REMOVE("remove"),
+    CONNECT("connect"),
     OUTPUT("output"),
     EXIT("exit");
 

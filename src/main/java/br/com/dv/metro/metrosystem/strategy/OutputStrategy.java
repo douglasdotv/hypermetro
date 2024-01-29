@@ -1,5 +1,6 @@
 package br.com.dv.metro.metrosystem.strategy;
 
+import br.com.dv.metro.exception.MetroLineNotFoundException;
 import br.com.dv.metro.metrosystem.MetroLine;
 
 import java.util.List;
@@ -9,7 +10,6 @@ public class OutputStrategy implements CommandStrategy {
 
     private static final int MIN_INPUT_SIZE = 2;
     private static final String INVALID_COMMAND_MESSAGE = "Invalid command";
-    private static final String LINE_DOES_NOT_EXIST_TEMPLATE = "Line %s does not exist in the metro system%n";
 
     @Override
     public void execute(List<String> input, Map<String, MetroLine> metroLines) {
@@ -21,8 +21,7 @@ public class OutputStrategy implements CommandStrategy {
         String lineName = input.get(1).toLowerCase();
 
         if (!metroLines.containsKey(lineName)) {
-            System.out.printf(LINE_DOES_NOT_EXIST_TEMPLATE, lineName);
-            return;
+            throw new MetroLineNotFoundException(lineName);
         }
 
         MetroLine line = metroLines.get(lineName);

@@ -1,17 +1,27 @@
 package br.com.dv.metro.metrosystem.model;
 
+import java.util.List;
+
 public class StationNode {
 
-    private final String name;
+    private final Station station;
     private StationNode previous;
     private StationNode next;
 
-    public StationNode(String name) {
-        this.name = name;
+    public StationNode(Station station) {
+        this.station = station;
+    }
+
+    public void addTransfer(Transfer transfer) {
+        this.station.transfers().add(transfer);
     }
 
     public String getName() {
-        return name;
+        return station.name();
+    }
+
+    public List<Transfer> getTransfers() {
+        return station.transfers();
     }
 
     public StationNode getPrevious() {
