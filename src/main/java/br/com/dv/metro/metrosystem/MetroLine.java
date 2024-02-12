@@ -5,7 +5,9 @@ import br.com.dv.metro.metrosystem.model.Station;
 import br.com.dv.metro.metrosystem.model.StationNode;
 import br.com.dv.metro.metrosystem.model.Transfer;
 
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 public class MetroLine {
 
@@ -54,7 +56,7 @@ public class MetroLine {
         this.totalStations++;
     }
 
-    public void remove(String stationName) {
+    public StationNode remove(String stationName) {
         for (StationNode current = this.head.getNext(); current != this.tail; current = current.getNext()) {
             if (current.getName().equalsIgnoreCase(stationName)) {
                 StationNode currentPrevious = current.getPrevious();
@@ -65,9 +67,10 @@ public class MetroLine {
 
                 this.totalStations--;
                 this.removeTransfersToStation(stationName);
-                break;
+                return current;
             }
         }
+        throw new StationNotFoundException(stationName);
     }
 
     public void connect(String currentStationName, MetroLine otherLine, String otherStationName) {
@@ -124,6 +127,26 @@ public class MetroLine {
 
     public String getName() {
         return name;
+    }
+
+    public Station getStation(String stationName) {
+        return this.getStationNode(stationName).getStation();
+    }
+
+    public List<Station> getStations() {
+        List<Station> stations = new ArrayList<>();
+        for (StationNode current = this.head.getNext(); current != this.tail; current = current.getNext()) {
+            stations.add(current.getStation());
+        }
+        return stations;
+    }
+
+    public Station getFirstStation() {
+        return this.head.getNext().getStation();
+    }
+
+    public Station getLastStation() {
+        return this.tail.getPrevious().getStation();
     }
 
 }

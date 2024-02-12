@@ -16,6 +16,10 @@ public class StationNode {
         this.station.transfers().add(transfer);
     }
 
+    public Station getStation() {
+        return station;
+    }
+
     public String getName() {
         return station.name();
     }

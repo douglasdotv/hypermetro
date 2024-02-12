@@ -1,6 +1,7 @@
 package br.com.dv.metro.metrosystem.strategy;
 
 import br.com.dv.metro.exception.MetroLineNotFoundException;
+import br.com.dv.metro.metrosystem.MetroGraph;
 import br.com.dv.metro.metrosystem.MetroLine;
 
 import java.util.List;
@@ -12,7 +13,7 @@ public abstract class AbstractMetroLineUpdateStrategy implements CommandStrategy
     private static final String INVALID_COMMAND_MESSAGE = "Invalid command";
 
     @Override
-    public void execute(List<String> input, Map<String, MetroLine> metroLines) {
+    public void execute(List<String> input, Map<String, MetroLine> metroLines, MetroGraph graph) {
         if (input.size() < MIN_INPUT_SIZE) {
             System.out.println(INVALID_COMMAND_MESSAGE);
             return;
@@ -26,9 +27,9 @@ public abstract class AbstractMetroLineUpdateStrategy implements CommandStrategy
         }
 
         MetroLine line = metroLines.get(lineName);
-        doAction(line, stationName);
+        doAction(graph, line, stationName);
     }
 
-    protected abstract void doAction(MetroLine line, String stationName);
+    protected abstract void doAction(MetroGraph graph, MetroLine line, String stationName);
 
 }
