@@ -1,140 +1,167 @@
 {
   "azul": {
-    "1": { "name": "Tucuruvi", "transfer": [] },
-    "2": { "name": "Parada Inglesa", "transfer": [] },
-    "3": { "name": "Jardim São Paulo-Ayrton Senna", "transfer": [] },
-    "4": { "name": "Santana", "transfer": [] },
-    "5": { "name": "Carandiru", "transfer": [] },
-    "6": { "name": "Portuguesa-Tietê", "transfer": [] },
-    "7": { "name": "Armênia", "transfer": [] },
-    "8": { "name": "Tiradentes", "transfer": [] },
+    "1": { "name": "Tucuruvi", "transfer": [], "time": "2" },
+    "2": { "name": "Parada Inglesa", "transfer": [], "time": "3" },
+    "3": {
+      "name": "Jardim São Paulo-Ayrton Senna",
+      "transfer": [],
+      "time": "2"
+    },
+    "4": { "name": "Santana", "transfer": [], "time": "3" },
+    "5": { "name": "Carandiru", "transfer": [], "time": "2" },
+    "6": { "name": "Portuguesa-Tietê", "transfer": [], "time": "3" },
+    "7": { "name": "Armênia", "transfer": [], "time": "2" },
+    "8": { "name": "Tiradentes", "transfer": [], "time": "2" },
     "9": {
       "name": "Luz",
-      "transfer": [{ "line": "amarela", "station": "Luz" }]
+      "transfer": [{ "line": "amarela", "station": "Luz" }],
+      "time": "3"
     },
-    "10": { "name": "São Bento", "transfer": [] },
+    "10": { "name": "São Bento", "transfer": [], "time": "2" },
     "11": {
       "name": "Sé",
-      "transfer": [{ "line": "vermelha", "station": "Sé" }]
+      "transfer": [{ "line": "vermelha", "station": "Sé" }],
+      "time": "2"
     },
-    "12": { "name": "Japão-Liberdade", "transfer": [] },
-    "13": { "name": "São Joaquim", "transfer": [] },
-    "14": { "name": "Vergueiro", "transfer": [] },
+    "12": { "name": "Japão-Liberdade", "transfer": [], "time": "2" },
+    "13": { "name": "São Joaquim", "transfer": [], "time": "3" },
+    "14": { "name": "Vergueiro", "transfer": [], "time": "2" },
     "15": {
       "name": "Paraíso",
-      "transfer": [{ "line": "verde", "station": "Paraíso" }]
+      "transfer": [{ "line": "verde", "station": "Paraíso" }],
+      "time": "3"
     },
     "16": {
       "name": "Ana Rosa",
-      "transfer": [{ "line": "verde", "station": "Ana Rosa" }]
+      "transfer": [{ "line": "verde", "station": "Ana Rosa" }],
+      "time": "2"
     },
-    "17": { "name": "Vila Mariana", "transfer": [] },
+    "17": { "name": "Vila Mariana", "transfer": [], "time": "2" },
     "18": {
       "name": "Santa Cruz",
-      "transfer": [{ "line": "lilás", "station": "Santa Cruz" }]
+      "transfer": [{ "line": "lilás", "station": "Santa Cruz" }],
+      "time": "2"
     },
-    "19": { "name": "Praça da Árvore", "transfer": [] },
-    "20": { "name": "Saúde", "transfer": [] },
-    "21": { "name": "São Judas", "transfer": [] },
-    "22": { "name": "Conceição", "transfer": [] },
-    "23": { "name": "Jabaquara", "transfer": [] }
+    "19": { "name": "Praça da Árvore", "transfer": [], "time": "3" },
+    "20": { "name": "Saúde", "transfer": [], "time": "2" },
+    "21": { "name": "São Judas", "transfer": [], "time": "3" },
+    "22": { "name": "Conceição", "transfer": [], "time": "2" },
+    "23": { "name": "Jabaquara", "transfer": [], "time": null }
   },
   "verde": {
-    "1": { "name": "Vila Prudente", "transfer": [] },
-    "2": { "name": "Tamanduateí", "transfer": [] },
-    "3": { "name": "Sacomã", "transfer": [] },
-    "4": { "name": "Alto do Ipiranga", "transfer": [] },
-    "5": { "name": "Santos-Imigrantes", "transfer": [] },
+    "1": { "name": "Vila Prudente", "transfer": [], "time": "3" },
+    "2": { "name": "Tamanduateí", "transfer": [], "time": "2" },
+    "3": { "name": "Sacomã", "transfer": [], "time": "3" },
+    "4": { "name": "Alto do Ipiranga", "transfer": [], "time": "2" },
+    "5": { "name": "Santos-Imigrantes", "transfer": [], "time": "2" },
     "6": {
       "name": "Chácara Klabin",
-      "transfer": [{ "line": "lilás", "station": "Chácara Klabin" }]
+      "transfer": [{ "line": "lilás", "station": "Chácara Klabin" }],
+      "time": "2"
     },
     "7": {
       "name": "Ana Rosa",
-      "transfer": [{ "line": "azul", "station": "Ana Rosa" }]
+      "transfer": [{ "line": "azul", "station": "Ana Rosa" }],
+      "time": "3"
     },
     "8": {
       "name": "Paraíso",
-      "transfer": [{ "line": "azul", "station": "Paraíso" }]
+      "transfer": [{ "line": "azul", "station": "Paraíso" }],
+      "time": "2"
     },
-    "9": { "name": "Brigadeiro", "transfer": [] },
-    "10": { "name": "Trianon-Masp", "transfer": [] },
+    "9": { "name": "Brigadeiro", "transfer": [], "time": "3" },
+    "10": { "name": "Trianon-Masp", "transfer": [], "time": "2" },
     "11": {
       "name": "Consolação",
-      "transfer": [{ "line": "amarela", "station": "Paulista" }]
+      "transfer": [{ "line": "amarela", "station": "Paulista" }],
+      "time": "2"
     },
-    "12": { "name": "Clínicas", "transfer": [] },
+    "12": { "name": "Clínicas", "transfer": [], "time": "3" },
     "13": {
       "name": "Santuário Nossa Senhora de Fátima-Sumaré",
-      "transfer": []
+      "transfer": [],
+      "time": "2"
     },
-    "14": { "name": "Vila Madalena", "transfer": [] }
+    "14": { "name": "Vila Madalena", "transfer": [], "time": null }
   },
   "vermelha": {
-    "1": { "name": "Corinthians-Itaquera", "transfer": [] },
-    "2": { "name": "Artur Alvim", "transfer": [] },
-    "3": { "name": "Patriarca", "transfer": [] },
-    "4": { "name": "Guilhermina-Esperança", "transfer": [] },
-    "5": { "name": "Vila Matilde", "transfer": [] },
-    "6": { "name": "Penha", "transfer": [] },
-    "7": { "name": "Carrão", "transfer": [] },
-    "8": { "name": "Tatuapé", "transfer": [] },
-    "9": { "name": "Belém", "transfer": [] },
-    "10": { "name": "Bresser-Mooca", "transfer": [] },
-    "11": { "name": "Brás", "transfer": [] },
-    "12": { "name": "Pedro II", "transfer": [] },
-    "13": { "name": "Sé", "transfer": [{ "line": "azul", "station": "Sé" }] },
-    "14": { "name": "Anhangabaú", "transfer": [] },
+    "1": { "name": "Corinthians-Itaquera", "transfer": [], "time": "3" },
+    "2": { "name": "Artur Alvim", "transfer": [], "time": "2" },
+    "3": { "name": "Patriarca", "transfer": [], "time": "3" },
+    "4": { "name": "Guilhermina-Esperança", "transfer": [], "time": "2" },
+    "5": { "name": "Vila Matilde", "transfer": [], "time": "2" },
+    "6": { "name": "Penha", "transfer": [], "time": "2" },
+    "7": { "name": "Carrão", "transfer": [], "time": "3" },
+    "8": { "name": "Tatuapé", "transfer": [], "time": "2" },
+    "9": { "name": "Belém", "transfer": [], "time": "3" },
+    "10": { "name": "Bresser-Mooca", "transfer": [], "time": "2" },
+    "11": { "name": "Brás", "transfer": [], "time": "2" },
+    "12": { "name": "Pedro II", "transfer": [], "time": "2" },
+    "13": {
+      "name": "Sé",
+      "transfer": [{ "line": "azul", "station": "Sé" }],
+      "time": "3"
+    },
+    "14": { "name": "Anhangabaú", "transfer": [], "time": "2" },
     "15": {
       "name": "República",
-      "transfer": [{ "line": "amarela", "station": "República" }]
+      "transfer": [{ "line": "amarela", "station": "República" }],
+      "time": "2"
     },
-    "16": { "name": "Santa Cecília", "transfer": [] },
-    "17": { "name": "Marechal Deodoro", "transfer": [] },
-    "18": { "name": "Palmeiras-Barra Funda", "transfer": [] }
+    "16": { "name": "Santa Cecília", "transfer": [], "time": "2" },
+    "17": { "name": "Marechal Deodoro", "transfer": [], "time": "3" },
+    "18": { "name": "Palmeiras-Barra Funda", "transfer": [], "time": null }
   },
   "amarela": {
-    "1": { "name": "Luz", "transfer": [{ "line": "azul", "station": "Luz" }] },
+    "1": {
+      "name": "Luz",
+      "transfer": [{ "line": "azul", "station": "Luz" }],
+      "time": "2"
+    },
     "2": {
       "name": "República",
-      "transfer": [{ "line": "vermelha", "station": "República" }]
+      "transfer": [{ "line": "vermelha", "station": "República" }],
+      "time": "2"
     },
-    "3": { "name": "Higienópolis-Mackenzie", "transfer": [] },
+    "3": { "name": "Higienópolis-Mackenzie", "transfer": [], "time": "3" },
     "4": {
       "name": "Paulista",
-      "transfer": [{ "line": "verde", "station": "Consolação" }]
+      "transfer": [{ "line": "verde", "station": "Consolação" }],
+      "time": "2"
     },
-    "5": { "name": "Oscar Freire", "transfer": [] },
-    "6": { "name": "Fradique Coutinho", "transfer": [] },
-    "7": { "name": "Faria Lima", "transfer": [] },
-    "8": { "name": "Pinheiros", "transfer": [] },
-    "9": { "name": "Butantã", "transfer": [] },
-    "10": { "name": "São Paulo-Morumbi", "transfer": [] },
-    "11": { "name": "Vila Sônia", "transfer": [] }
+    "5": { "name": "Oscar Freire", "transfer": [], "time": "2" },
+    "6": { "name": "Fradique Coutinho", "transfer": [], "time": "2" },
+    "7": { "name": "Faria Lima", "transfer": [], "time": "3" },
+    "8": { "name": "Pinheiros", "transfer": [], "time": "2" },
+    "9": { "name": "Butantã", "transfer": [], "time": "2" },
+    "10": { "name": "São Paulo-Morumbi", "transfer": [], "time": "2" },
+    "11": { "name": "Vila Sônia", "transfer": [], "time": null }
   },
   "lilás": {
-    "1": { "name": "Capão Redondo", "transfer": [] },
-    "2": { "name": "Campo Limpo", "transfer": [] },
-    "3": { "name": "Vila das Belezas", "transfer": [] },
-    "4": { "name": "Giovanni Gronchi", "transfer": [] },
-    "5": { "name": "Santo Amaro", "transfer": [] },
-    "6": { "name": "Largo Treze", "transfer": [] },
-    "7": { "name": "Adolfo Pinheiro", "transfer": [] },
-    "8": { "name": "Alto da Boa Vista", "transfer": [] },
-    "9": { "name": "Borba Gato", "transfer": [] },
-    "10": { "name": "Brooklin", "transfer": [] },
-    "11": { "name": "Campo Belo", "transfer": [] },
-    "12": { "name": "Eucaliptos", "transfer": [] },
-    "13": { "name": "Moema", "transfer": [] },
-    "14": { "name": "AACD-Servidor", "transfer": [] },
-    "15": { "name": "Hospital São Paulo", "transfer": [] },
+    "1": { "name": "Capão Redondo", "transfer": [], "time": "3" },
+    "2": { "name": "Campo Limpo", "transfer": [], "time": "2" },
+    "3": { "name": "Vila das Belezas", "transfer": [], "time": "3" },
+    "4": { "name": "Giovanni Gronchi", "transfer": [], "time": "2" },
+    "5": { "name": "Santo Amaro", "transfer": [], "time": "2" },
+    "6": { "name": "Largo Treze", "transfer": [], "time": "2" },
+    "7": { "name": "Adolfo Pinheiro", "transfer": [], "time": "3" },
+    "8": { "name": "Alto da Boa Vista", "transfer": [], "time": "2" },
+    "9": { "name": "Borba Gato", "transfer": [], "time": "2" },
+    "10": { "name": "Brooklin", "transfer": [], "time": "2" },
+    "11": { "name": "Campo Belo", "transfer": [], "time": "3" },
+    "12": { "name": "Eucaliptos", "transfer": [], "time": "2" },
+    "13": { "name": "Moema", "transfer": [], "time": "2" },
+    "14": { "name": "AACD-Servidor", "transfer": [], "time": "2" },
+    "15": { "name": "Hospital São Paulo", "transfer": [], "time": "3" },
     "16": {
       "name": "Santa Cruz",
-      "transfer": [{ "line": "azul", "station": "Santa Cruz" }]
+      "transfer": [{ "line": "azul", "station": "Santa Cruz" }],
+      "time": "2"
     },
     "17": {
       "name": "Chácara Klabin",
-      "transfer": [{ "line": "verde", "station": "Chácara Klabin" }]
+      "transfer": [{ "line": "verde", "station": "Chácara Klabin" }],
+      "time": null
     }
   }
 }
