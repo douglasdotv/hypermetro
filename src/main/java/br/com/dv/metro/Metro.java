@@ -5,6 +5,7 @@ import br.com.dv.metro.metrosystem.MetroSystem;
 import br.com.dv.metro.metrosystem.model.StationDTO;
 import br.com.dv.metro.util.FileReader;
 import br.com.dv.metro.util.JsonParser;
+import br.com.dv.metro.util.MetroOutput;
 import com.google.gson.JsonParseException;
 
 import java.util.Map;
@@ -15,7 +16,7 @@ public class Metro {
 
     public static void main(String[] args) {
         if (args.length != 1) {
-            System.out.println(USAGE);
+            MetroOutput.output(USAGE);
             return;
         }
 
@@ -26,7 +27,7 @@ public class Metro {
             MetroSystem metroSystem = new MetroSystem(metroLines);
             metroSystem.run();
         } catch (FileReadException | JsonParseException ex) {
-            System.err.println(ex.getMessage());
+            MetroOutput.outputErr(ex.getMessage());
         }
     }
 

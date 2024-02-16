@@ -4,6 +4,7 @@ import br.com.dv.metro.exception.StationNotFoundException;
 import br.com.dv.metro.metrosystem.model.Station;
 import br.com.dv.metro.metrosystem.model.StationNode;
 import br.com.dv.metro.metrosystem.model.Transfer;
+import br.com.dv.metro.util.MetroOutput;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -89,26 +90,7 @@ public class MetroLine {
         if (this.totalStations == 0) {
             return;
         }
-
-        StringBuilder output = new StringBuilder();
-
-        for (StationNode current = this.head; current != null; current = current.getNext()) {
-            output.append(current.getName());
-
-            if (!current.getTransfers().isEmpty()) {
-                for (Transfer transfer : current.getTransfers()) {
-                    output.append(" - ")
-                            .append(transfer.station())
-                            .append(" (")
-                            .append(transfer.line())
-                            .append(" line)");
-                }
-            }
-
-            output.append("\n");
-        }
-
-        System.out.println(output);
+        MetroOutput.outputStations(this.head);
     }
 
     private StationNode getStationNode(String stationName) {

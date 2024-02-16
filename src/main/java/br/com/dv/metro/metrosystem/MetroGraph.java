@@ -2,6 +2,7 @@ package br.com.dv.metro.metrosystem;
 
 import br.com.dv.metro.metrosystem.model.Edge;
 import br.com.dv.metro.metrosystem.model.Station;
+import br.com.dv.metro.util.MetroOutput;
 import br.com.dv.metro.util.PathFinder;
 
 import java.util.*;
@@ -29,42 +30,12 @@ public class MetroGraph {
 
     public void outputShortestPath(Station source, Station target) {
         List<Station> path = PathFinder.findShortestPath(this, source, target);
-
-        StringBuilder output = new StringBuilder();
-
-        Station previousStation = null;
-        for (Station station : path) {
-            boolean isTransfer = previousStation != null && !station.line().equals(previousStation.line());
-            if (isTransfer) {
-                output.append(String.format("Transition to line %s%n", station.line().getName()));
-            }
-            output.append(station.name()).append("\n");
-            previousStation = station;
-        }
-
-        System.out.println(output);
+        MetroOutput.outputShortestPath(path);
     }
 
     public void outputFastestPath(Station source, Station target) {
         PathFinder.PathResult pathResult = PathFinder.findFastestPath(this, source, target);
-        List<Station> path = pathResult.path();
-        int totalTime = pathResult.totalTime();
-
-        StringBuilder sb = new StringBuilder();
-
-        Station previousStation = null;
-        for (Station station : path) {
-            boolean isTransfer = previousStation != null && !station.line().equals(previousStation.line());
-            if (isTransfer) {
-                sb.append(String.format("Transition to line %s%n", station.line().getName()));
-            }
-            sb.append(station.name()).append("\n");
-            previousStation = station;
-        }
-        sb.append(String.format("Total time: %d minutes", totalTime));
-
-        String output = sb.toString();
-        LOGGER.info(output);
+        MetroOutput.outputFastestPath(pathResult.path(), pathResult.totalTime());
     }
 
     private void removeStationEdges(Station station) {

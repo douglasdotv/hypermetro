@@ -8,6 +8,7 @@ import br.com.dv.metro.metrosystem.model.StationDTO;
 import br.com.dv.metro.metrosystem.model.Transfer;
 import br.com.dv.metro.metrosystem.strategy.*;
 import br.com.dv.metro.util.InputHandler;
+import br.com.dv.metro.util.MetroOutput;
 
 import java.util.Comparator;
 import java.util.HashMap;
@@ -45,7 +46,7 @@ public class MetroSystem {
                 CommandStrategy strategy = this.commandStrategies.getOrDefault(command, new InvalidStrategy());
                 strategy.execute(input, this.metroLines, this.metroGraph);
             } catch (MetroLineNotFoundException | StationNotFoundException e) {
-                System.err.println(e.getMessage());
+                MetroOutput.outputErr(e.getMessage());
             }
         }
     }
