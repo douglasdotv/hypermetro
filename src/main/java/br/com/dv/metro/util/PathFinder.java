@@ -2,9 +2,11 @@ package br.com.dv.metro.util;
 
 import br.com.dv.metro.exception.RouteNotFoundException;
 import br.com.dv.metro.metrosystem.MetroGraph;
+import br.com.dv.metro.metrosystem.model.Edge;
 import br.com.dv.metro.metrosystem.model.Station;
 
 import java.util.*;
+import java.util.function.ToIntFunction;
 
 public final class PathFinder {
 
@@ -12,6 +14,15 @@ public final class PathFinder {
     }
 
     public static List<Station> findShortestPath(MetroGraph graph, Station source, Station target) {
+        return findPath(graph, source, target, edge -> edge.isTransfer() ? 0 : 1).path();
+    }
+
+    public static PathResult findFastestPath(MetroGraph graph, Station source, Station target) {
+        return findPath(graph, source, target, Edge::weight);
+    }
+
+    private static PathResult findPath(MetroGraph graph, Station source, Station target,
+                                       ToIntFunction<Edge> weightFunction) {
         Map<Station, Integer> times = new HashMap<>();
         Queue<Station> priorityQueue = new PriorityQueue<>(Comparator.comparingInt(times::get));
         Map<Station, Station> predecessors = new HashMap<>();
@@ -24,12 +35,15 @@ public final class PathFinder {
             Station current = priorityQueue.poll();
 
             if (current.equals(target)) {
-                return reconstructPath(predecessors, target);
+                List<Station> path = reconstructPath(predecessors, target);
+                int totalTime = times.get(target);
+                return new PathResult(path, totalTime);
             }
 
             graph.getNeighbors(current).forEach(edge -> {
                 Station neighbor = edge.target();
-                int newTime = times.get(current) + (edge.isTransfer() ? 0 : 1);
+                int weight = weightFunction.applyAsInt(edge);
+                int newTime = times.get(current) + weight;
                 if (newTime < times.get(neighbor)) {
                     times.put(neighbor, newTime);
                     priorityQueue.add(neighbor);
@@ -47,6 +61,9 @@ public final class PathFinder {
             path.addFirst(current);
         }
         return path;
+    }
+
+    public record PathResult(List<Station> path, int totalTime) {
     }
 
 }

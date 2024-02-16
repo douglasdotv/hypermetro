@@ -5,6 +5,7 @@ import br.com.dv.metro.exception.MetroLineNotFoundException;
 import br.com.dv.metro.exception.StationNotFoundException;
 import br.com.dv.metro.metrosystem.model.Station;
 import br.com.dv.metro.metrosystem.model.StationDTO;
+import br.com.dv.metro.metrosystem.model.Transfer;
 import br.com.dv.metro.metrosystem.strategy.*;
 import br.com.dv.metro.util.InputHandler;
 
@@ -22,6 +23,7 @@ public class MetroSystem {
             Command.PREPEND.getInput(), new PrependStrategy(),
             Command.REMOVE.getInput(), new RemoveStrategy(),
             Command.CONNECT.getInput(), new ConnectStrategy(),
+            Command.FASTEST_ROUTE.getInput(), new FastestRouteStrategy(),
             Command.SHORTEST_ROUTE.getInput(), new ShortestRouteStrategy(),
             Command.OUTPUT.getInput(), new OutputStrategy()
     );
@@ -62,7 +64,7 @@ public class MetroSystem {
                     .sorted(Comparator.comparingInt(Integer::parseInt))
                     .forEachOrdered(key -> {
                         StationDTO dto = stations.get(key);
-                        Station station = new Station(dto.name(), metroLine, dto.transfers());
+                        Station station = this.mapDtoToStation(dto, metroLine);
                         metroLine.append(station);
                     });
         });
@@ -103,6 +105,14 @@ public class MetroSystem {
             Station targetStation = targetLine.getStation(transfer.station());
             metroGraph.addEdge(sourceStation, targetStation, true);
         });
+    }
+
+    private Station mapDtoToStation(StationDTO dto, MetroLine metroLine) {
+        String name = dto.name();
+        List<Transfer> transfers = dto.transfers();
+        String timeAsString = dto.time();
+        int time = timeAsString == null ? 0 : Integer.parseInt(timeAsString);
+        return new Station(name, metroLine, transfers, time);
     }
 
 }

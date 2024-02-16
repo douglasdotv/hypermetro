@@ -4,5 +4,5 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public record StationDTO(String name, @SerializedName("transfer") List<Transfer> transfers) {
+public record StationDTO(String name, @SerializedName("transfer") List<Transfer> transfers, String time) {
 }

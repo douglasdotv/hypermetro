@@ -9,8 +9,9 @@ import java.util.ArrayList;
 public class AppendStrategy extends AbstractMetroLineUpdateStrategy {
 
     @Override
-    protected void doAction(MetroGraph graph, MetroLine line, String stationName) {
-        Station station = new Station(stationName, line, new ArrayList<>());
+    protected void doAction(MetroGraph graph, MetroLine line, String stationName, int time) {
+        int lastStationTime = 0;
+        Station station = new Station(stationName, line, new ArrayList<>(), lastStationTime);
         Station lastStation = line.getLastStation();
         graph.addEdge(lastStation, station, false);
         line.append(station);

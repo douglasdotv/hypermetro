@@ -6,6 +6,7 @@ public enum Command {
     PREPEND("add-head"),
     REMOVE("remove"),
     CONNECT("connect"),
+    FASTEST_ROUTE("fastest-route"),
     SHORTEST_ROUTE("route"),
     OUTPUT("output"),
     EXIT("exit");

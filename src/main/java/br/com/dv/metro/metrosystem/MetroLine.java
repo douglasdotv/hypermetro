@@ -12,6 +12,7 @@ import java.util.List;
 public class MetroLine {
 
     private static final String LINE_EXTREMITY = "Depot";
+    private static final int LINE_EXTREMITY_TIME = 0;
 
     private final String name;
     private final StationNode head;
@@ -21,7 +22,7 @@ public class MetroLine {
     public MetroLine(String lineName) {
         this.name = lineName;
 
-        Station depot = new Station(LINE_EXTREMITY, this, Collections.emptyList());
+        Station depot = new Station(LINE_EXTREMITY, this, Collections.emptyList(), LINE_EXTREMITY_TIME);
         this.head = new StationNode(depot);
         this.tail = new StationNode(depot);
         this.head.setNext(this.tail);

@@ -45,6 +45,28 @@ public class MetroGraph {
         System.out.println(output);
     }
 
+    public void outputFastestPath(Station source, Station target) {
+        PathFinder.PathResult pathResult = PathFinder.findFastestPath(this, source, target);
+        List<Station> path = pathResult.path();
+        int totalTime = pathResult.totalTime();
+
+        StringBuilder sb = new StringBuilder();
+
+        Station previousStation = null;
+        for (Station station : path) {
+            boolean isTransfer = previousStation != null && !station.line().equals(previousStation.line());
+            if (isTransfer) {
+                sb.append(String.format("Transition to line %s%n", station.line().getName()));
+            }
+            sb.append(station.name()).append("\n");
+            previousStation = station;
+        }
+        sb.append(String.format("Total time: %d minutes", totalTime));
+
+        String output = sb.toString();
+        LOGGER.info(output);
+    }
+
     private void removeStationEdges(Station station) {
         var stationEdges = this.adjacencyList.get(station);
         var copyOfStationEdges = new LinkedList<>(stationEdges);

@@ -5,5 +5,5 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public record Station(String name, MetroLine line, @SerializedName("transfer") List<Transfer> transfers) {
+public record Station(String name, MetroLine line, @SerializedName("transfer") List<Transfer> transfers, int time) {
 }

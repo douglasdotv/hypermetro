@@ -7,7 +7,7 @@ import br.com.dv.metro.metrosystem.model.Station;
 public class RemoveStrategy extends AbstractMetroLineUpdateStrategy {
 
     @Override
-    protected void doAction(MetroGraph graph, MetroLine line, String stationName) {
+    protected void doAction(MetroGraph graph, MetroLine line, String stationName, int time) {
         Station station = line.remove(stationName).getStation();
         graph.removeStation(station);
     }
