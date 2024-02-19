@@ -78,8 +78,6 @@ public class MetroSystem {
             stationDtos.forEach(stationDto -> {
                 Station station = metroLine.getStation(stationDto.name());
 
-                this.metroGraph.addStation(station);
-
                 stationDto.next().forEach(nextStationName -> {
                     Station nextStation = metroLine.getStation(nextStationName);
                     this.metroGraph.addEdge(station, nextStation, false);
