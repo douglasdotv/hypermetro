@@ -28,8 +28,8 @@ public class MetroSystem {
             Command.OUTPUT.getInput(), new OutputStrategy()
     );
 
-    public MetroSystem(Map<String, List<StationDTO>> metroLines) {
-        this.init(metroLines);
+    public MetroSystem(Map<String, List<StationDTO>> metroLinesJsonData) {
+        this.init(metroLinesJsonData);
     }
 
     public void run() {
@@ -50,13 +50,13 @@ public class MetroSystem {
         }
     }
 
-    private void init(Map<String, List<StationDTO>> metroLines) {
-        this.buildMetroLines(metroLines);
-        this.buildMetroGraph(metroLines);
+    private void init(Map<String, List<StationDTO>> metroLinesJsonData) {
+        this.buildMetroLines(metroLinesJsonData);
+        this.buildMetroGraph(metroLinesJsonData);
     }
 
-    private void buildMetroLines(Map<String, List<StationDTO>> metroLines) {
-        metroLines.forEach((lineName, stations) -> {
+    private void buildMetroLines(Map<String, List<StationDTO>> metroLinesJsonData) {
+        metroLinesJsonData.forEach((lineName, stations) -> {
             MetroLine metroLine = new MetroLine(lineName.toLowerCase());
             this.metroLines.put(lineName.toLowerCase(), metroLine);
 
@@ -67,8 +67,8 @@ public class MetroSystem {
         });
     }
 
-    private void buildMetroGraph(Map<String, List<StationDTO>> metroLines) {
-        metroLines.forEach((lineName, stationDtos) -> {
+    private void buildMetroGraph(Map<String, List<StationDTO>> metroLinesJsonData) {
+        metroLinesJsonData.forEach((lineName, stationDtos) -> {
             MetroLine metroLine = this.metroLines.get(lineName.toLowerCase());
 
             if (metroLine == null) {
