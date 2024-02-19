@@ -6,6 +6,8 @@ import com.google.gson.JsonParseException;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
+import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 
 public final class JsonParser {
@@ -15,9 +17,9 @@ public final class JsonParser {
     private JsonParser() {
     }
 
-    public static Map<String, Map<String, StationDTO>> parseJsonToMap(String json) {
+    public static Map<String, List<StationDTO>> parseJsonToMap(String json) {
         Gson gson = new Gson();
-        Type type = new TypeToken<Map<String, Map<String, StationDTO>>>(){}.getType();
+        Type type = new TypeToken<Map<String, List<StationDTO>>>(){}.getType();
         try {
             return gson.fromJson(json, type);
         } catch (JsonParseException ex) {

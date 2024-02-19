@@ -10,7 +10,6 @@ import br.com.dv.metro.metrosystem.strategy.*;
 import br.com.dv.metro.util.InputHandler;
 import br.com.dv.metro.util.MetroOutput;
 
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -29,7 +28,7 @@ public class MetroSystem {
             Command.OUTPUT.getInput(), new OutputStrategy()
     );
 
-    public MetroSystem(Map<String, Map<String, StationDTO>> metroLines) {
+    public MetroSystem(Map<String, List<StationDTO>> metroLines) {
         this.init(metroLines);
     }
 
@@ -51,46 +50,43 @@ public class MetroSystem {
         }
     }
 
-    private void init(Map<String, Map<String, StationDTO>> metroLines) {
+    private void init(Map<String, List<StationDTO>> metroLines) {
         this.buildMetroLines(metroLines);
-        this.buildMetroGraph();
+        this.buildMetroGraph(metroLines);
     }
 
-    private void buildMetroLines(Map<String, Map<String, StationDTO>> metroLines) {
+    private void buildMetroLines(Map<String, List<StationDTO>> metroLines) {
         metroLines.forEach((lineName, stations) -> {
             MetroLine metroLine = new MetroLine(lineName.toLowerCase());
             this.metroLines.put(lineName.toLowerCase(), metroLine);
 
-            stations.keySet().stream()
-                    .sorted(Comparator.comparingInt(Integer::parseInt))
-                    .forEachOrdered(key -> {
-                        StationDTO dto = stations.get(key);
-                        Station station = this.mapDtoToStation(dto, metroLine);
-                        metroLine.append(station);
-                    });
+            stations.forEach(stationDto -> {
+                Station station = this.mapDtoToStation(stationDto, metroLine);
+                metroLine.append(station);
+            });
         });
     }
 
-    private void buildMetroGraph() {
-        this.metroLines.values().forEach(line -> {
-            List<Station> lineStations = line.getStations();
-            Station previousStation = null;
+    private void buildMetroGraph(Map<String, List<StationDTO>> metroLines) {
+        metroLines.forEach((lineName, stationDtos) -> {
+            MetroLine metroLine = this.metroLines.get(lineName.toLowerCase());
 
-            for (Station station : lineStations) {
+            if (metroLine == null) {
+                throw new MetroLineNotFoundException(lineName);
+            }
+
+            stationDtos.forEach(stationDto -> {
+                Station station = metroLine.getStation(stationDto.name());
+
                 this.metroGraph.addStation(station);
 
-                if (previousStation != null) {
-                    this.metroGraph.addEdge(previousStation, station, false);
-                }
-
-                previousStation = station;
-
-                if (station.transfers().isEmpty()) {
-                    continue;
-                }
+                stationDto.next().forEach(nextStationName -> {
+                    Station nextStation = metroLine.getStation(nextStationName);
+                    this.metroGraph.addEdge(station, nextStation, false);
+                });
 
                 this.addStationTransfersAsGraphEdges(station);
-            }
+            });
         });
     }
 

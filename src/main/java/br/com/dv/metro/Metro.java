@@ -8,6 +8,7 @@ import br.com.dv.metro.util.JsonParser;
 import br.com.dv.metro.util.MetroOutput;
 import com.google.gson.JsonParseException;
 
+import java.util.List;
 import java.util.Map;
 
 public class Metro {
@@ -23,7 +24,7 @@ public class Metro {
         try {
             String metroLinesFilePath = args[0];
             String metroLinesJsonStr = FileReader.readFileAsString(metroLinesFilePath);
-            Map<String, Map<String, StationDTO>> metroLines = JsonParser.parseJsonToMap(metroLinesJsonStr);
+            Map<String, List<StationDTO>> metroLines = JsonParser.parseJsonToMap(metroLinesJsonStr);
             MetroSystem metroSystem = new MetroSystem(metroLines);
             metroSystem.run();
         } catch (FileReadException | JsonParseException ex) {
